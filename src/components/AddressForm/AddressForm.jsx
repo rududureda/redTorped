@@ -4,7 +4,7 @@ import './addressForm.scss';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
-  country: PropTypes.string.isRequired,
+  country: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setCountry: PropTypes.func.isRequired,
 };
