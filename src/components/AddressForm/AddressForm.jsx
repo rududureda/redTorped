@@ -1,6 +1,5 @@
 import './addressForm.scss';
-// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
-// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
+import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
@@ -9,43 +8,45 @@ AddressForm.propTypes = {
   setCountry: PropTypes.func.isRequired,
 };
 
-// export default function AddressForm({ country, onSubmit, setCountry }) {
-//   const handleManualInputChange = (event, stateProperty) => {
-//     const newAddress = { ...country };
-//     newAddress[stateProperty] = event.target.value;
-
-//     setCountry(newAddress);
-//   };
 export default function AddressForm({ country, onSubmit, setCountry }) {
-  const handleInputChange = (event) => {
-    setCountry(event.target.value);
-  };
+  const handleManualInputChange = (event, stateProperty) => {
+    const newAddress = { ...country };
+    newAddress[stateProperty] = event.target.value;
 
-  const handleReset = () => {
-    setCountry('');
+    setCountry(newAddress);
   };
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      {/* <AutoCompleteInput
-        setAddress={setAddress}
+      <AutoCompleteInput
+        setAddress={setCountry}
         handleManualInputChange={handleManualInputChange}
-        streetAndNumber={address.streetAndNumber}
-      /> */}
+        />
       <label htmlFor="country">Country</label>
       <input
         type="text"
         id="country"
         placeholder="Country"
-        value={country}
-        onChange={handleInputChange}
+        value={country.country}
+        onChange={(event) => handleManualInputChange(event, 'country')}
+        
       />
 
       <div className="buttons">
         <button type="submit" className="confirm-button">
           Confirm
         </button>
-        <button type="button" className="reset-button" onClick={handleReset}>
+        <button
+          type="reset"
+          className="reset-button"
+          onClick={() =>
+            setCountry({
+              country: '',
+              latitude: '',
+              longitude: '',
+            })
+          }
+        >
           Reset
         </button>
       </div>
