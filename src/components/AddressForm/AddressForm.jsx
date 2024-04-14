@@ -9,12 +9,20 @@ AddressForm.propTypes = {
   setCountry: PropTypes.func.isRequired,
 };
 
-export default function AddressForm({ country, onSubmit, setCountry }) {
-  const handleManualInputChange = (event, stateProperty) => {
-    const newAddress = { ...country };
-    newAddress[stateProperty] = event.target.value;
+// export default function AddressForm({ country, onSubmit, setCountry }) {
+//   const handleManualInputChange = (event, stateProperty) => {
+//     const newAddress = { ...country };
+//     newAddress[stateProperty] = event.target.value;
 
-    setCountry(newAddress);
+//     setCountry(newAddress);
+//   };
+export default function AddressForm({ country, onSubmit, setCountry }) {
+  const handleInputChange = (event) => {
+    setCountry(event.target.value);
+  };
+
+  const handleReset = () => {
+    setCountry('');
   };
 
   return (
@@ -30,18 +38,14 @@ export default function AddressForm({ country, onSubmit, setCountry }) {
         id="country"
         placeholder="Country"
         value={country}
-        onChange={(event) => handleManualInputChange(event, 'country')}
+        onChange={handleInputChange}
       />
 
       <div className="buttons">
         <button type="submit" className="confirm-button">
           Confirm
         </button>
-        <button
-          type="reset"
-          className="reset-button"
-          onClick={() => setCountry('')}
-        >
+        <button type="button" className="reset-button" onClick={handleReset}>
           Reset
         </button>
       </div>
