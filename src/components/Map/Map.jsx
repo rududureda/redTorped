@@ -18,7 +18,7 @@ function Map({ longitude, latitude, updateCoordinates }) {
   const [viewport, setViewport] = useState({
     latitude,
     longitude,
-    zoom: 16,
+    zoom: 0,
   });
 
   const [marker, setMarker] = useState({
