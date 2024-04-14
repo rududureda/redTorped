@@ -1,19 +1,20 @@
 import './addressForm.scss';
-import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
+// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
+// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
-  address: PropTypes.object.isRequired,
+  country: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  setAddress: PropTypes.func.isRequired,
+  setCountry: PropTypes.func.isRequired,
 };
 
-export default function AddressForm({ address, onSubmit, setAddress }) {
+export default function AddressForm({ country, onSubmit, setCountry }) {
   const handleManualInputChange = (event, stateProperty) => {
-    const newAddress = { ...address };
+    const newAddress = { ...country };
     newAddress[stateProperty] = event.target.value;
 
-    setAddress(newAddress);
+    setCountry(newAddress);
   };
 
   return (
@@ -28,7 +29,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         type="text"
         id="country"
         placeholder="Country"
-        value={address.country}
+        value={country}
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 
@@ -40,7 +41,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           type="reset"
           className="reset-button"
           onClick={() =>
-            setAddress({
+            setCountry({
               country: '',
               latitude: '',
               longitude: '',
