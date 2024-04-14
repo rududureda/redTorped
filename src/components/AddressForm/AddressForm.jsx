@@ -4,7 +4,7 @@ import './addressForm.scss';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
-  country: PropTypes.object.isRequired,
+  country: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setCountry: PropTypes.func.isRequired,
 };
@@ -40,13 +40,7 @@ export default function AddressForm({ country, onSubmit, setCountry }) {
         <button
           type="reset"
           className="reset-button"
-          onClick={() =>
-            setCountry({
-              country: '',
-              latitude: '',
-              longitude: '',
-            })
-          }
+          onClick={() => setCountry('')}
         >
           Reset
         </button>
