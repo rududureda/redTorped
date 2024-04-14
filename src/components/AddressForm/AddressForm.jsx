@@ -18,40 +18,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      <label htmlFor="address">Address</label>
-      <AutoCompleteInput
+      {/* <AutoCompleteInput
         setAddress={setAddress}
         handleManualInputChange={handleManualInputChange}
         streetAndNumber={address.streetAndNumber}
-      />
-
-      <label htmlFor="city">City</label>
-      <input
-        type="text"
-        id="city"
-        placeholder="City"
-        value={address.place}
-        onChange={(event) => handleManualInputChange(event, 'place')}
-      />
-
-      <label htmlFor="state">State/Province/Region</label>
-      <input
-        type="text"
-        id="state"
-        placeholder="State/Province/Region"
-        value={address.region}
-        onChange={(event) => handleManualInputChange(event, 'region')}
-      />
-
-      <label htmlFor="postcode">Postcode</label>
-      <input
-        type="text"
-        id="postcode"
-        placeholder="Postcode"
-        value={address.postcode}
-        onChange={(event) => handleManualInputChange(event, 'postcode')}
-      />
-
+      /> */}
       <label htmlFor="country">Country</label>
       <input
         type="text"
@@ -70,10 +41,6 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           className="reset-button"
           onClick={() =>
             setAddress({
-              streetAndNumber: '',
-              place: '',
-              region: '',
-              postcode: '',
               country: '',
               latitude: '',
               longitude: '',

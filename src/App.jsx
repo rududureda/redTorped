@@ -5,12 +5,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useState } from 'react';
 
 function App() {
-  const [address, setAddress] = useState({
-    streetAndNumber: '',
-    place: '',
-    region: '',
-    postcode: '',
-    country: '',
+  const [country, setCountry] = useState('');
+  const [coordinates, setCoordinates] = useState({
     latitude: '',
     longitude: '',
   });
@@ -18,26 +14,26 @@ function App() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (address.streetAndNumber) {
-      console.log('Selected address:', address);
+    if (country) {
+      console.log('Selected country:', country);
     }
   };
 
   const updateCoordinates = (latitude, longitude) => {
-    setAddress({ ...address, latitude, longitude });
+    setCoordinates({ latitude, longitude });
   };
 
   return (
     <div className="App">
       <AddressForm
         onSubmit={handleFormSubmit}
-        address={address}
-        setAddress={setAddress}
+        country={country}
+        setCountry={setCountry}
       />
-      {address.longitude && address.latitude && (
+      {coordinates.longitude && coordinates.latitude && (
         <Map
-          longitude={address.longitude}
-          latitude={address.latitude}
+          longitude={coordinates.longitude}
+          latitude={coordinates.latitude}
           updateCoordinates={updateCoordinates}
         />
       )}
