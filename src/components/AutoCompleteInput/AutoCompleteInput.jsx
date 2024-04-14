@@ -1,7 +1,7 @@
 import './AutoCompleteInput.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import getCountries from '../../API/getCountries';
+import getPlaces from '../../API/getPlaces';
 
 AutoCompleteInput.propTypes = {
   setAddress: PropTypes.func.isRequired,
@@ -17,7 +17,7 @@ export default function AutoCompleteInput({ setAddress }) {
 
   const handleChange = async (event) => {
     const query = event.target.value;
-    const countrySuggesions = await getCountries(query);
+    const countrySuggesions = await getPlaces(query);
     setSuggestions(countrySuggesions);
   };
 
