@@ -4,9 +4,7 @@ import PointerIcon from '../../assets/pointer.svg';
 import ReactMapGl, { Marker } from 'react-map-gl';
 import { useState, useEffect } from 'react';
 
-const TOKEN =
-  import.meta.env.VITE_TOKEN ||
-  'sk.eyJ1IjoicmVkYXJ1ZHVkdSIsImEiOiJjbHV6bnV5djUxZHZ5Mmxtb3cxenowenloIn0.LIGiIyvqyGiVHTepI6lK_g';
+const TOKEN = import.meta.env.VITE_TOKEN;
 console.log(`Token`, TOKEN);
 Map.propTypes = {
   longitude: PropTypes.number.isRequired,
