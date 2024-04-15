@@ -1,54 +1,3 @@
-// import './App.scss';
-// import AddressForm from './components/AddressForm/AddressForm';
-// import Map from './components/Map/Map';
-// import 'mapbox-gl/dist/mapbox-gl.css';
-// import { useState } from 'react';
-
-// function App() {
-//   const [address, setAddress] = useState({
-//     streetAndNumber: '',
-//     place: '',
-//     region: '',
-//     postcode: '',
-//     country: '',
-//     latitude: '',
-//     longitude: '',
-//   });
-
-//   const handleFormSubmit = (event) => {
-//     event.preventDefault();
-
-//     if (address.streetAndNumber) {
-//       console.log('Selected address:', address);
-//     }
-//   };
-
-//   const updateCoordinates = (latitude, longitude) => {
-//     setAddress({ ...address, latitude, longitude });
-//   };
-
-//   return (
-//     <div className="App">
-//       <AddressForm
-//         onSubmit={handleFormSubmit}
-//         address={address}
-//         setAddress={setAddress}
-//       />
-//       {address.longitude && address.latitude && (
-//         <Map
-//           longitude={address.longitude}
-//           latitude={address.latitude}
-//           updateCoordinates={updateCoordinates}
-//         />
-//       )}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
 import './App.scss';
 import AddressForm from './components/AddressForm/AddressForm';
 import Map from './components/Map/Map';
@@ -56,8 +5,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useState } from 'react';
 
 function App() {
-  const [country, setCountry] = useState('');
-  const [coordinates, setCoordinates] = useState({
+  const [address, setAddress] = useState({
+    streetAndNumber: '',
+    place: '',
+    region: '',
+    postcode: '',
+    country: '',
     latitude: '',
     longitude: '',
   });
@@ -65,26 +18,26 @@ function App() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (country) {
-      console.log('Selected country:', country);
+    if (address.streetAndNumber) {
+      console.log('Selected address:', address);
     }
   };
 
   const updateCoordinates = (latitude, longitude) => {
-    setCoordinates({ latitude, longitude });
+    setAddress({ ...address, latitude, longitude });
   };
 
   return (
     <div className="App">
       <AddressForm
         onSubmit={handleFormSubmit}
-        country={country}
-        setCountry={setCountry}
+        address={address}
+        setAddress={setAddress}
       />
-      {coordinates.longitude && coordinates.latitude && (
+      {address.longitude && address.latitude && (
         <Map
-          longitude={coordinates.longitude}
-          latitude={coordinates.latitude}
+          longitude={address.longitude}
+          latitude={address.latitude}
           updateCoordinates={updateCoordinates}
         />
       )}
@@ -93,3 +46,50 @@ function App() {
 }
 
 export default App;
+
+
+
+// import './App.scss';
+// import AddressForm from './components/AddressForm/AddressForm';
+// import Map from './components/Map/Map';
+// import 'mapbox-gl/dist/mapbox-gl.css';
+// import { useState } from 'react';
+
+// function App() {
+//   const [country, setCountry] = useState('');
+//   const [coordinates, setCoordinates] = useState({
+//     latitude: '',
+//     longitude: '',
+//   });
+
+//   const handleFormSubmit = (event) => {
+//     event.preventDefault();
+
+//     if (country) {
+//       console.log('Selected country:', country);
+//     }
+//   };
+
+//   const updateCoordinates = (latitude, longitude) => {
+//     setCoordinates({ latitude, longitude });
+//   };
+
+//   return (
+//     <div className="App">
+//       <AddressForm
+//         onSubmit={handleFormSubmit}
+//         country={country}
+//         setCountry={setCountry}
+//       />
+//       {coordinates.longitude && coordinates.latitude && (
+//         <Map
+//           longitude={coordinates.longitude}
+//           latitude={coordinates.latitude}
+//           updateCoordinates={updateCoordinates}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
