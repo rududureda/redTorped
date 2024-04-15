@@ -30,6 +30,7 @@ function Map({ longitude, latitude, updateCoordinates }) {
       latitude,
       longitude,
     }));
+    setMarker({ latitude, longitude });
   }, [latitude, longitude]);
 
   const handleMarkerDrag = (event) => {
