@@ -14,7 +14,7 @@ function App() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (address.streetAndNumber) {
+    if (address) {
       console.log('Selected address:', address);
     }
   };
@@ -42,8 +42,6 @@ function App() {
 }
 
 export default App;
-
-
 
 // import './App.scss';
 // import AddressForm from './components/AddressForm/AddressForm';
