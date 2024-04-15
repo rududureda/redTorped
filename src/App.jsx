@@ -6,10 +6,6 @@ import { useState } from 'react';
 
 function App() {
   const [address, setAddress] = useState({
-    streetAndNumber: '',
-    place: '',
-    region: '',
-    postcode: '',
     country: '',
     latitude: '',
     longitude: '',

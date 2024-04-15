@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default async function getPlaces(query) {
   try {
@@ -7,13 +7,12 @@ export default async function getPlaces(query) {
       {
         params: {
           access_token: import.meta.env.VITE_TOKEN,
-          types: 'country'
         },
       }
     );
 
     return response.data.features;
   } catch (error) {
-    console.error("There was an error while fetching places:", error);
+    console.error('There was an error while fetching places:', error);
   }
 }
