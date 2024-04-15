@@ -86,15 +86,6 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         onChange={(event) => handleManualInputChange(event, 'place')}
       />
 
-      <label htmlFor="state">State/Province/Region</label>
-      <input
-        type="text"
-        id="state"
-        placeholder="State/Province/Region"
-        value={address.region}
-        onChange={(event) => handleManualInputChange(event, 'region')}
-      />
-
       <label htmlFor="country">Country</label>
       <input
         type="text"
@@ -115,7 +106,6 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             setAddress({
               streetAndNumber: '',
               place: '',
-              region: '',
               country: '',
               latitude: '',
               longitude: '',
