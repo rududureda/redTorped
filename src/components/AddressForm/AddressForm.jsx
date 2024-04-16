@@ -58,14 +58,27 @@ AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
+  handleAddToVisited: PropTypes.func.isRequired,
 };
 
-export default function AddressForm({ address, onSubmit, setAddress }) {
+export default function AddressForm({
+  address,
+  onSubmit,
+  setAddress,
+  handleAddToVisited,
+}) {
   const handleManualInputChange = (event, stateProperty) => {
     const newAddress = { ...address };
     newAddress[stateProperty] = event.target.value;
 
     setAddress(newAddress);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Call handleAddToVisited to add the country to visited list
+    handleAddToVisited(address.country);
+    // Reset the country input
+    setAddress({ ...address, country: '' });
   };
 
   return (
@@ -89,6 +102,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         <button type="submit" className="confirm-button">
           Confirm
         </button>
+
         <button
           type="reset"
           className="reset-button"
