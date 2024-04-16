@@ -1,9 +1,9 @@
 import './App.scss';
 import AddressForm from './components/AddressForm/AddressForm';
 import Map from './components/Map/Map';
+import VisitedCountry from './components/VisitedCountry/VisitedCountry';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useState } from 'react';
-// import VisitedCountry from './components/VisitedCountry/VisitedCountry';
 
 function App() {
   const [address, setAddress] = useState({
@@ -31,6 +31,7 @@ function App() {
         address={address}
         setAddress={setAddress}
       />
+      <VisitedCountry />
       {address.longitude && address.latitude && (
         <Map
           longitude={address.longitude}

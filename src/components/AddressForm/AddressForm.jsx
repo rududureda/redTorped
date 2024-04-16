@@ -55,10 +55,10 @@ import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
-  address: PropTypes.object.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  setAddress: PropTypes.func.isRequired,
-  handleAddToVisited: PropTypes.func.isRequired,
+  address: PropTypes.object,//deleted isRequired
+  onSubmit: PropTypes.func,//deleted isRequired
+  setAddress: PropTypes.func,//deleted isRequired
+  handleAddToVisited: PropTypes.func,//deleted isRequired
 };
 
 export default function AddressForm({
@@ -94,7 +94,7 @@ export default function AddressForm({
         type="text"
         id="country"
         placeholder="Country"
-        value={address.country}
+        value={address}////deleted .country
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 
