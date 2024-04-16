@@ -1,6 +1,6 @@
 import './VisitedCountry.scss';
 import { useState } from 'react';
-import AddressForm from './AddressForm/AddressForm';
+import AddressForm from '../AddressForm/AddressForm';
 
 function VisitedCountries() {
   const [visitedCountries, setVisitedCountries] = useState([]);
