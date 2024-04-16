@@ -55,17 +55,17 @@ import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
 
 AddressForm.propTypes = {
-  address: PropTypes.object,//deleted isRequired
-  onSubmit: PropTypes.func,//deleted isRequired
-  setAddress: PropTypes.func,//deleted isRequired
-  handleAddToVisited: PropTypes.func,//deleted isRequired
+  address: PropTypes.object.isRequired, //deleted isRequired
+  onSubmit: PropTypes.func.isRequired, //deleted isRequired
+  setAddress: PropTypes.func.isRequired, //deleted isRequired
+  // handleAddToVisited: PropTypes.func,//deleted isRequired
 };
 
 export default function AddressForm({
   address,
   onSubmit,
   setAddress,
-  handleAddToVisited,
+  // handleAddToVisited,
 }) {
   const handleManualInputChange = (event, stateProperty) => {
     const newAddress = { ...address };
@@ -73,13 +73,13 @@ export default function AddressForm({
 
     setAddress(newAddress);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call handleAddToVisited to add the country to visited list
-    handleAddToVisited(address.country);
-    // Reset the country input
-    setAddress({ ...address, country: '' });
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // Call handleAddToVisited to add the country to visited list
+  //   handleAddToVisited(address.country);
+  //   // Reset the country input
+  //   setAddress({ ...address, country: '' });
+  // };
 
   return (
     <form className="form" onSubmit={onSubmit}>
@@ -94,7 +94,7 @@ export default function AddressForm({
         type="text"
         id="country"
         placeholder="Country"
-        value={address}////deleted .country
+        value={address.country} ////deleted .country
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 
