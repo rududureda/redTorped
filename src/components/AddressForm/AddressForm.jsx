@@ -53,7 +53,7 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
-
+ 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired, //deleted isRequired
   onSubmit: PropTypes.func.isRequired, //deleted isRequired

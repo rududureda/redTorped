@@ -5,14 +5,14 @@ import getPlaces from '../../API/getPlaces';
 
 AutoCompleteInput.propTypes = {
   handleManualInputChange: PropTypes.func.isRequired,
-  setAddress: PropTypes.func,//deleted .isRequired
-//   streetAndNumber: PropTypes.string.isRequired,
+  setAddress: PropTypes.func, //deleted .isRequired
+  //   streetAndNumber: PropTypes.string.isRequired,
 };
 
 export default function AutoCompleteInput({
   handleManualInputChange,
   setAddress,
-//   streetAndNumber,
+  //   streetAndNumber,
 }) {
   const [suggestions, setSuggestions] = useState([]);
 
@@ -24,13 +24,19 @@ export default function AutoCompleteInput({
   const handleInputChange = async (query) => {
     const suggesions = await getPlaces(query);
     setSuggestions(suggesions);
+    console.log('Paziuret ka man grazina suggesion', suggesions);
   };
 
   const handleSuggestionClick = (suggestion) => {
     // const streetAndNumber = suggestion.place_name.split(',')[0];
     const latitude = suggestion.center[1];
     const longitude = suggestion.center[0];
-
+    console.log(
+      'suggestion.center[1]',
+      suggestion.center[1],
+      'suggestion.center[0]',
+      suggestion.center[0]
+    );
     const address = {
       place: '',
       region: '',
@@ -60,7 +66,7 @@ export default function AutoCompleteInput({
           type="text"
           placeholder="Address"
           value={''}
-        //   value={streetAndNumber}
+          //   value={streetAndNumber}
           onChange={handleChange}
         />
         <ul className="addressSuggestions">
