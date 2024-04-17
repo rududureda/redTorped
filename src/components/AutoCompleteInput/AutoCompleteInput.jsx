@@ -14,10 +14,12 @@ export default function AutoCompleteInput({
   setAddress,
   //   streetAndNumber,
 }) {
+  const [inputValue, setInputValue] = useState(''); //add
   const [suggestions, setSuggestions] = useState([]);
 
   const handleChange = (event) => {
-    handleManualInputChange(event, 'streetAndNumber');
+    setInputValue(event.target.value); //add
+    handleManualInputChange(event, 'city');
     handleInputChange(event.target.value);
   };
 
@@ -60,7 +62,8 @@ export default function AutoCompleteInput({
           id="address"
           type="text"
           placeholder="Address"
-          value={''}
+          value={inputValue} //add
+          // value={''}
           //   value={streetAndNumber}
           onChange={handleChange}
         />
