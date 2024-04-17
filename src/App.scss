@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
   margin: 0;
   background: rgb(90, 21, 71);
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #root {
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .App {
   display: flex;
   width: 1000px;
+  flex-direction: column;
   justify-content: center;
+  gap: 5rem;
 }
 
 @media only screen and (max-width: 700px) {
