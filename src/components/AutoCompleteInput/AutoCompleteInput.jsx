@@ -38,13 +38,10 @@ export default function AutoCompleteInput({
       suggestion.center[0]
     );
     const address = {
-      place: '',
-      region: '',
-      postcode: '',
       country: '',
       latitude,
       longitude,
-    };
+    }; // DELETED place: '',region: '',postcode: '',
 
     suggestion.context.forEach((element) => {
       const identifier = element.id.split('.')[0];
@@ -72,8 +69,7 @@ export default function AutoCompleteInput({
         <ul className="addressSuggestions">
           {suggestions?.map((suggestion, index) => (
             <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
-              {suggestion.place_name[1]}
-              {/* //add {1} */}
+              {suggestion.place_name}
             </li>
           ))}
         </ul>
