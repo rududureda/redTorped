@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
   margin: 0;
   background: rgb(90, 21, 71);
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 #root {
@@ -19,6 +19,7 @@ body {
   width: 1000px;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5rem;
 }
 
