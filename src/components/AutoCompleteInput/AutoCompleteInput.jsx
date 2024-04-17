@@ -18,7 +18,7 @@ export default function AutoCompleteInput({
 
   const handleChange = (event) => {
     setInputValue(event.target.value); //add
-    handleManualInputChange(event, 'city');
+    handleManualInputChange(event.target.value, 'city');
     handleInputChange(event.target.value);
   };
 

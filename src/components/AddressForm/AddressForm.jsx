@@ -67,12 +67,13 @@ export default function AddressForm({
   setAddress,
   // handleAddToVisited,
 }) {
-  const handleManualInputChange = (event, stateProperty) => {
+  const handleManualInputChange = (country, stateProperty) => {
     const newAddress = { ...address };
-    newAddress[stateProperty] = event.target.value;
+    console.log('newAddress:', newAddress);
+    console.log('country', country);
+    newAddress[stateProperty] = country;
 
     setAddress(newAddress);
-    console.log('setAddress(newAddress)', newAddress);
   };
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -81,7 +82,7 @@ export default function AddressForm({
   //   // Reset the country input
   //   setAddress({ ...address, country: '' });
   // };
-  console.log('setAddress', setAddress);
+
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
@@ -95,7 +96,7 @@ export default function AddressForm({
         type="text"
         id="country"
         placeholder="Country"
-        value={address.country} 
+        value={address.country}
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 
