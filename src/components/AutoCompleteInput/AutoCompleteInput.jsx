@@ -44,7 +44,7 @@ export default function AutoCompleteInput({
     };
 
     suggestion.context.forEach((element) => {
-      const identifier = element.id.split('.')[2];
+      const identifier = element.id.split('.')[0];
 
       address[identifier] = element.text;
     });
