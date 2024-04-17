@@ -86,7 +86,7 @@ export default function AddressForm({
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
       <AutoCompleteInput
-        setAddress={address.country}
+        setAddress={setAddress}
         handleManualInputChange={handleManualInputChange}
       />
 
@@ -95,7 +95,7 @@ export default function AddressForm({
         type="text"
         id="country"
         placeholder="Country"
-        value={address.country}
+        value={address.country} 
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 
