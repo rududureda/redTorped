@@ -95,7 +95,7 @@ export default function AddressForm({
         type="text"
         id="country"
         placeholder="Country"
-        value={address.country} ////deleted .country
+        value={address.country} 
         onChange={(event) => handleManualInputChange(event, 'country')}
       />
 

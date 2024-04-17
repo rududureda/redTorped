@@ -31,17 +31,15 @@ export default function AutoCompleteInput({
     // const streetAndNumber = suggestion.place_name.split(',')[0];
     const latitude = suggestion.center[1];
     const longitude = suggestion.center[0];
-    console.log(
-      'suggestion.center[1]',
-      suggestion.center[1],
-      'suggestion.center[0]',
-      suggestion.center[0]
-    );
+
     const address = {
+      place: '',
+      region: '',
+      postcode: '',
       country: '',
       latitude,
       longitude,
-    }; // DELETED place: '',region: '',postcode: '',
+    };
 
     suggestion.context.forEach((element) => {
       const identifier = element.id.split('.')[0];
