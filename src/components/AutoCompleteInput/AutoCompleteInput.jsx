@@ -12,7 +12,6 @@ AutoCompleteInput.propTypes = {
 export default function AutoCompleteInput({
   handleManualInputChange,
   setAddress,
-  //   streetAndNumber,
 }) {
   const [inputValue, setInputValue] = useState(''); //add
   const [suggestions, setSuggestions] = useState([]);
@@ -35,9 +34,6 @@ export default function AutoCompleteInput({
     const longitude = suggestion.center[0];
 
     const address = {
-      // place: '',
-      // region: '',
-      // postcode: '',
       country: '',
       latitude,
       longitude,

@@ -10,7 +10,7 @@ export default async function getPlaces(query) {
         },
       }
     );
-
+    console.log(' getPlaces:', getPlaces);
     return response.data.features;
   } catch (error) {
     console.error('There was an error while fetching places:', error);
