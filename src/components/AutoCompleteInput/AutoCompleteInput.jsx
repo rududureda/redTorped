@@ -51,7 +51,7 @@ export default function AutoCompleteInput({
 
     console.log(address.longitude, address.latitude);
 
-    setAddress(address.country);
+    setAddress(address);
     setSuggestions([]);
   };
 
@@ -62,7 +62,7 @@ export default function AutoCompleteInput({
           id="address"
           type="text"
           placeholder="Address"
-          value={setAddress} //add
+          value={inputValue} //add
           // value={''}
           //   value={streetAndNumber}
           onChange={handleChange}
