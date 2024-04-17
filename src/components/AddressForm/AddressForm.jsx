@@ -67,38 +67,12 @@ export default function AddressForm({
   setAddress,
   // handleAddToVisited,
 }) {
-  const handleManualInputChange = (country, stateProperty) => {
-    const newAddress = { ...address };
-    console.log('newAddress:', newAddress);
-    console.log('country', country);
-    newAddress[stateProperty] = country;
-
-    setAddress(newAddress);
-  };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Call handleAddToVisited to add the country to visited list
-  //   handleAddToVisited(address.country);
-  //   // Reset the country input
-  //   setAddress({ ...address, country: '' });
-  // };
-
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
-      <AutoCompleteInput
-        setAddress={setAddress}
-        handleManualInputChange={handleManualInputChange}
-      />
-
-      <label htmlFor="country">Country</label>
-      <input
-        type="text"
-        id="country"
-        placeholder="Country"
-        value={address.country}
-        onChange={(event) => handleManualInputChange(event, 'country')}
-      />
+      <AutoCompleteInput setAddress={setAddress} />
+      
+      <h2>{address.country}</h2>
 
       <div className="buttons">
         <button type="submit" className="confirm-button">

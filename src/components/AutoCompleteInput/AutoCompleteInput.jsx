@@ -9,41 +9,30 @@ AutoCompleteInput.propTypes = {
   //   streetAndNumber: PropTypes.string.isRequired,
 };
 
-export default function AutoCompleteInput({
-  handleManualInputChange,
-  setAddress,
-}) {
+export default function AutoCompleteInput({ setAddress }) {
   const [inputValue, setInputValue] = useState(''); //add
   const [suggestions, setSuggestions] = useState([]);
 
   const handleChange = (event) => {
     setInputValue(event.target.value); //add
-    handleManualInputChange(event.target.value, 'city');
     handleInputChange(event.target.value);
   };
 
   const handleInputChange = async (query) => {
     const suggesions = await getPlaces(query);
-    setSuggestions(suggesions);
+    setSuggestions(suggesions.filter((sug) => sug.place_type[0] === 'country'));
     console.log('Paziuret ka man grazina suggesion', suggesions);
   };
 
   const handleSuggestionClick = (suggestion) => {
-    // const streetAndNumber = suggestion.place_name.split(',')[0];
     const latitude = suggestion.center[1];
     const longitude = suggestion.center[0];
 
     const address = {
-      country: '',
+      country: suggestion.place_name,
       latitude,
       longitude,
     };
-
-    suggestion.context.forEach((element) => {
-      const identifier = element.id.split('.')[0];
-
-      address[identifier] = element.text;
-    });
 
     console.log(address.longitude, address.latitude);
 
@@ -58,9 +47,7 @@ export default function AutoCompleteInput({
           id="address"
           type="text"
           placeholder="Address"
-          value={inputValue} //add
-          // value={''}
-          //   value={streetAndNumber}
+          value={inputValue}
           onChange={handleChange}
         />
         <ul className="addressSuggestions">
