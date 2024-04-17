@@ -53,7 +53,7 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
- 
+
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired, //deleted isRequired
   onSubmit: PropTypes.func.isRequired, //deleted isRequired
@@ -72,6 +72,7 @@ export default function AddressForm({
     newAddress[stateProperty] = event.target.value;
 
     setAddress(newAddress);
+    console.log('setAddress(newAddress)', newAddress);
   };
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -80,7 +81,7 @@ export default function AddressForm({
   //   // Reset the country input
   //   setAddress({ ...address, country: '' });
   // };
-
+  console.log('setAddress', setAddress);
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
