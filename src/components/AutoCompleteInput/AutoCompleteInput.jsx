@@ -35,16 +35,16 @@ export default function AutoCompleteInput({
     const longitude = suggestion.center[0];
 
     const address = {
-      place: '',
-      region: '',
-      postcode: '',
+      // place: '',
+      // region: '',
+      // postcode: '',
       country: '',
       latitude,
       longitude,
     };
 
     suggestion.context.forEach((element) => {
-      const identifier = element.id.split('.')[0];
+      const identifier = element.id.split('.')[2];
 
       address[identifier] = element.text;
     });
