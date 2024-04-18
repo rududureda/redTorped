@@ -30,7 +30,8 @@ export default function AddressForm({
       <AutoCompleteInput setAddress={setAddress} />
       <div className="visitedCountry">
         <div>
-          <h2>{address.country}</h2>
+          <visitedCountryData value={address.country} />
+          {/* <h2>{address.country}</h2> */}
           <FontAwesomeIcon
             icon={faCircleXmark}
             className={`favorite-icon ${
