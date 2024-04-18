@@ -5,12 +5,12 @@
 }
 .favorite-icon {
   margin-left: auto;
-  color: var(--primary-gray);
+  color: white;
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
 
   &--active {
-    color: var(--accent-orange);
+    color: red;
   }
 }
