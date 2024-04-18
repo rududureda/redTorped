@@ -4,17 +4,16 @@ import { useState } from 'react';
 import getPlaces from '../../API/getPlaces';
 
 AutoCompleteInput.propTypes = {
-  handleManualInputChange: PropTypes.func.isRequired,
+  // handleManualInputChange: PropTypes.func.isRequired,
   setAddress: PropTypes.func, //deleted .isRequired
-  //   streetAndNumber: PropTypes.string.isRequired,
 };
 
 export default function AutoCompleteInput({ setAddress }) {
-  const [inputValue, setInputValue] = useState(''); //add
+  const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
   const handleChange = (event) => {
-    setInputValue(event.target.value); //add
+    setInputValue(event.target.value);
     handleInputChange(event.target.value);
   };
 
@@ -33,8 +32,6 @@ export default function AutoCompleteInput({ setAddress }) {
       latitude,
       longitude,
     };
-
-    console.log(address.longitude, address.latitude);
 
     setAddress(address);
     setSuggestions([]);
@@ -61,48 +58,3 @@ export default function AutoCompleteInput({ setAddress }) {
     </div>
   );
 }
-///////////////////////////////////////////////////
-
-// import './AutoCompleteInput.scss';
-// import PropTypes from 'prop-types';
-// import { useState } from 'react';
-// import getPlaces from '../../API/getPlaces';
-
-// AutoCompleteInput.propTypes = {
-//   setAddress: PropTypes.func.isRequired,
-// };
-
-// export default function AutoCompleteInput({ setAddress }) {
-//   const [suggestions, setSuggestions] = useState([]);
-
-//   const handleChange = async (event) => {
-//     const query = event.target.value;
-//     const countrySuggesions = await getPlaces(query);
-//     setSuggestions(countrySuggesions);
-//   };
-
-//   const handleSuggestionClick = (country) => {
-//     setAddress({ country });
-//     setSuggestions([]);
-//   };
-
-//   return (
-//     <div>
-//       <div className="autoCompleteInputContainer">
-//         <input
-//           id="country"
-//           type="text"
-//           placeholder="Country"
-//           onChange={handleChange}
-//         />
-//         <ul className="addressSuggestions">
-//           {suggestions?.map((country, index) => (
-//             <li key={index} onClick={() => handleSuggestionClick(country)}>
-//               {country.place_name}
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
