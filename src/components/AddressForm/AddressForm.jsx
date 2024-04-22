@@ -21,6 +21,9 @@ export default function AddressForm({
   // handleRemoveFromVisitedCountry,
   // visitedCountryData,
 }) {
+  const handleAddCountry = (country) => {
+    setAddress([...address.countries, country]);
+  };
   // const isVisitedCountry = visitedCountryData.some(
   //   (item) => item.address === address
   // );
@@ -46,7 +49,11 @@ export default function AddressForm({
         </div>
       </div>
       <div className="buttons">
-        <button type="submit" className="confirm-button">
+        <button
+          onClick={handleAddCountry}
+          type="submit"
+          className="confirm-button"
+        >
           Confirm
         </button>
         <button

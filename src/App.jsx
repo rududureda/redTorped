@@ -1,6 +1,6 @@
 import './App.scss';
 import AddressForm from './components/AddressForm/AddressForm';
-import AutoCompleteInput from './components/AutoCompleteInput/AutoCompleteInput';
+
 import Map from './components/Map/Map';
 // import VisitedCountry from './components/VisitedCountry/VisitedCountry';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -32,6 +32,7 @@ function App() {
         address={address}
         setAddress={setAddress}
       />
+
       {/* <VisitedCountry /> */}
       {address.longitude && address.latitude && (
         <Map
