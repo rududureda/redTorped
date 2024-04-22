@@ -51,7 +51,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             Reset
           </button>
         </div>
-        <div>
+        <div className='wrapper-countrys'>
           {items.map((item, index) => (
             <div key={index} className="country-item">
               <h2>{item}</h2>
