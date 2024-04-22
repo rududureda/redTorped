@@ -19,7 +19,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   }, [items]);
 
   const handleAddCountry = (newItem) => {
-    setItems([...items, newItem]);
+    if (!items.includes(newItem)) {
+      setItems([...items, newItem]);
+    } else {
+      setShowMessage(true);
+    }
   };
   // const uniqueCountries = [...new Set(items)];
   return (
