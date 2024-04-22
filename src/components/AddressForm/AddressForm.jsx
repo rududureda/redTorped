@@ -43,6 +43,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           {uniqueCountries.map((item, index) => (
             <h2 key={index}>{item}</h2>
           ))}
+          {uniqueCountries.length !== items.length && (
+            <p color="red">
+              Selected Country is already in visited country's list
+            </p>
+          )}
         </div>
       </div>
     </form>
