@@ -32,7 +32,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
       <AutoCompleteInput setAddress={setAddress} />
-      <div className="visitedCountry">
+      {/* <div className="visitedCountry"> */}
         <div className="buttons">
           <button onClick={() => handleAddCountry(address.country)}>
             Add Country
@@ -64,7 +64,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             </p>
           )}
         </div>
-      </div>
+      {/* </div> */}
     </form>
   );
 }
