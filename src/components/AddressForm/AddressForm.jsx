@@ -1,38 +1,38 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
-  handleAddToVisitedCountry: PropTypes.func, //deleted .isRequired
-  handleRemoveFromVisitedCountry: PropTypes.func, //deleted .isRequired
-  visitedCountryData: PropTypes.array, //deleted .isRequired
+  // handleAddToVisitedCountry: PropTypes.func, //deleted .isRequired
+  // handleRemoveFromVisitedCountry: PropTypes.func, //deleted .isRequired
+  // visitedCountryData: PropTypes.array, //deleted .isRequired
 };
 
 export default function AddressForm({
   address,
   onSubmit,
   setAddress,
-  handleAddToVisitedCountry,
-  handleRemoveFromVisitedCountry,
-  visitedCountryData,
+  // handleAddToVisitedCountry,
+  // handleRemoveFromVisitedCountry,
+  // visitedCountryData,
 }) {
-  const isVisitedCountry = visitedCountryData.some(
-    (item) => item.address === address
-  );
+  // const isVisitedCountry = visitedCountryData.some(
+  //   (item) => item.address === address
+  // );
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
       <AutoCompleteInput setAddress={setAddress} />
       <div className="visitedCountry">
         <div>
-          <visitedCountryData value={address.country} />
-          {/* <h2>{address.country}</h2> */}
-          <FontAwesomeIcon
+          {/* <visitedCountryData value={address.country} /> */}
+          <h2>{address.country}</h2>
+          {/* <FontAwesomeIcon
             icon={faCircleXmark}
             className={`favorite-icon ${
               isVisitedCountry ? 'favorite-icon--active' : ''
@@ -42,7 +42,7 @@ export default function AddressForm({
                 ? handleRemoveFromVisitedCountry(address.country)
                 : handleAddToVisitedCountry(address.country);
             }}
-          />
+          /> */}
         </div>
       </div>
       <div className="buttons">
