@@ -25,7 +25,9 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       setShowMessage(true);
     }
   };
-  // const uniqueCountries = [...new Set(items)];
+  const handleRemoveCountry = (indexToRemove) => {
+    setItems(items.filter((_, index) => index !== indexToRemove));
+  };
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
@@ -51,7 +53,10 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         </div>
         <div>
           {items.map((item, index) => (
-            <h2 key={index}>{item}</h2>
+            <div key={index} className="country-item">
+              <h2>{item}</h2>
+              <button onClick={() => handleRemoveCountry(index)}>x</button>
+            </div>
           ))}
           {showMessage && (
             <p style={{ color: 'red' }}>
