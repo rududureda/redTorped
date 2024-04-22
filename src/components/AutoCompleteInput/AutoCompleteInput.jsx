@@ -6,10 +6,9 @@ import getPlaces from '../../API/getPlaces';
 AutoCompleteInput.propTypes = {
   // handleManualInputChange: PropTypes.func.isRequired,
   setAddress: PropTypes.func, //deleted .isRequired
-  address: PropTypes.object.isRequired,
 };
 
-export default function AutoCompleteInput({ setAddress, address }) {
+export default function AutoCompleteInput({ setAddress }) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -28,13 +27,13 @@ export default function AutoCompleteInput({ setAddress, address }) {
     const latitude = suggestion.center[1];
     const longitude = suggestion.center[0];
 
-    const country = {
-      name: suggestion.place_name,
+    const address = {
+      country: suggestion.place_name,
       latitude,
       longitude,
     };
 
-    setAddress({ ...address, countries: [...address.countries, country] });
+    setAddress(address);
     setSuggestions([]);
   };
 

@@ -21,24 +21,18 @@ export default function AddressForm({
   // handleRemoveFromVisitedCountry,
   // visitedCountryData,
 }) {
-  const handleAddCountry = (country) => {
-    setAddress({ ...address, countries: [...address.countries, country] });
-  };
   // const isVisitedCountry = visitedCountryData.some(
   //   (item) => item.address === address
   // );
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
-      <AutoCompleteInput
-        setAddress={setAddress}
-        handleAddCountry={handleAddCountry}
-      />
-      {/* <div className="visitedCountry">
-        <div> */}
-      {/* <visitedCountryData value={address.country} /> */}
-      {/* <h2>{address.country}</h2> */}
-      {/* <FontAwesomeIcon
+      <AutoCompleteInput setAddress={setAddress} />
+      <div className="visitedCountry">
+        <div>
+          {/* <visitedCountryData value={address.country} /> */}
+          <h2>{address.country}</h2>
+          {/* <FontAwesomeIcon
             icon={faCircleXmark}
             className={`favorite-icon ${
               isVisitedCountry ? 'favorite-icon--active' : ''
@@ -49,8 +43,8 @@ export default function AddressForm({
                 : handleAddToVisitedCountry(address.country);
             }}
           /> */}
-      {/* </div>
-      </div> */}
+        </div>
+      </div>
       <div className="buttons">
         <button type="submit" className="confirm-button">
           Confirm
@@ -58,7 +52,13 @@ export default function AddressForm({
         <button
           type="reset"
           className="reset-button"
-          onClick={() => setAddress({ ...address, countries: [] })}
+          onClick={() =>
+            setAddress({
+              country: '',
+              latitude: '',
+              longitude: '',
+            })
+          }
         >
           Reset
         </button>
