@@ -34,7 +34,7 @@ export default function AddressForm({
       <div className="visitedCountry">
         <div>
           {/* <visitedCountryData value={address.country} /> */}
-          <h2>{address.country}</h2>
+          <h2>handleAddCountry={handleAddCountry}</h2>
           {/* <FontAwesomeIcon
             icon={faCircleXmark}
             className={`favorite-icon ${
