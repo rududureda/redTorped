@@ -25,7 +25,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         <div>
           <button onClick={handleAddCountry}>AddCountry </button>
           {name.map((item) => (
-            <h2 key={item.country}></h2>
+            <h2 key={name.country}></h2>
           ))}
         </div>
       </div>
