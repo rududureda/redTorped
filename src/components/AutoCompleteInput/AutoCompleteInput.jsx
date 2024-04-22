@@ -11,6 +11,7 @@ AutoCompleteInput.propTypes = {
 export default function AutoCompleteInput({ setAddress }) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [visitedCountry, setVisitedCountries]=useState([])
 
   const handleChange = (event) => {
     setInputValue(event.target.value);

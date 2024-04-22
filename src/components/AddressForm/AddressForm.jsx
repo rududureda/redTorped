@@ -10,11 +10,10 @@ AddressForm.propTypes = {
 };
 
 export default function AddressForm({ address, onSubmit, setAddress }) {
-  const [item, setItem] = useState([]);
-  const name = address.country;
+  const [items, setItems] = useState([]);
 
-  const handleAddCountry = (item) => {
-    setItem([...name, item]);
+  const handleAddCountry = (newItem) => {
+    setItems([...items, newItem]);
   };
 
   return (
@@ -23,9 +22,9 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       <AutoCompleteInput setAddress={setAddress} />
       <div className="visitedCountry">
         <div>
-          <button onClick={handleAddCountry}>AddCountry </button>
-          {name.map((item) => (
-            <h2 key={item.country}></h2>
+          <button onClick={() => handleAddCountry(address.country)}>Add Country</button>
+          {items.map((item, index) => (
+            <h2 key={index}>{item}</h2>
           ))}
         </div>
       </div>
@@ -50,6 +49,60 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     </form>
   );
 }
+////////good
+// import './addressForm.scss';
+// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
+// import PropTypes from 'prop-types';
+// import { useState } from 'react';
+
+// AddressForm.propTypes = {
+//   address: PropTypes.object.isRequired,
+//   onSubmit: PropTypes.func.isRequired,
+//   setAddress: PropTypes.func.isRequired,
+// };
+
+// export default function AddressForm({ address, onSubmit, setAddress }) {
+//   const [item, setItem] = useState([]);
+//   const name = address.country;
+
+//   const handleAddCountry = (item) => {
+//     setItem([...name, item]);
+//   };
+
+//   return (
+//     <form className="form" onSubmit={onSubmit}>
+//       <label htmlFor="address">Address</label>
+//       <AutoCompleteInput setAddress={setAddress} />
+//       <div className="visitedCountry">
+//         <div>
+//           <button onClick={handleAddCountry}>AddCountry </button>
+//           {name.map((item) => (
+//             <h2 key={item.country}></h2>
+//           ))}
+//         </div>
+//       </div>
+//       <div className="buttons">
+//         <button type="submit" className="confirm-button">
+//           Confirm
+//         </button>
+//         <button
+//           type="reset"
+//           className="reset-button"
+//           onClick={() =>
+//             setAddress({
+//               country: '',
+//               latitude: '',
+//               longitude: '',
+//             })
+//           }
+//         >
+//           Reset
+//         </button>
+//       </div>
+//     </form>
+//   );
+// }
+/////////////////// not good
 // import './addressForm.scss';
 // import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 // import PropTypes from 'prop-types';
