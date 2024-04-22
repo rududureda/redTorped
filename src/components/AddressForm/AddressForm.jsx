@@ -24,17 +24,13 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       <div className="visitedCountry">
         <div>
           <button onClick={handleAddCountry}>AddCountry </button>
-          {item.map((item) => (
-            <h2 key={item.address.country}></h2>
+          {name.map((item) => (
+            <h2 key={item.country}></h2>
           ))}
         </div>
       </div>
       <div className="buttons">
-        <button
-          onClick={handleAddCountry}
-          type="submit"
-          className="confirm-button"
-        >
+        <button type="submit" className="confirm-button">
           Confirm
         </button>
         <button
