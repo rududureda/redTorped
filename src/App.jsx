@@ -32,7 +32,6 @@ function App() {
         address={address}
         setAddress={setAddress}
       />
-      <AutoCompleteInput address={address} />
       {/* <VisitedCountry /> */}
       {address.longitude && address.latitude && (
         <Map
