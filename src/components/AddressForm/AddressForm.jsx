@@ -1,59 +1,30 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
-  // handleAddToVisitedCountry: PropTypes.func, //deleted .isRequired
-  // handleRemoveFromVisitedCountry: PropTypes.func, //deleted .isRequired
-  // visitedCountryData: PropTypes.array, //deleted .isRequired
 };
 
-export default function AddressForm({
-  address,
-  onSubmit,
-  setAddress,
-  // handleAddToVisitedCountry,
-  // handleRemoveFromVisitedCountry,
-  // visitedCountryData,
-}) {
+export default function AddressForm({ address, onSubmit, setAddress }) {
   const handleAddCountry = (country) => {
     setAddress([...address.countries, country]);
   };
-  // const isVisitedCountry = visitedCountryData.some(
-  //   (item) => item.address === address
-  // );
+
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
-      <AutoCompleteInput handleAddCountry={handleAddCountry} />
+      <AutoCompleteInput setAddress={setAddress} />
       <div className="visitedCountry">
         <div>
-          {/* <visitedCountryData value={address.country} /> */}
           <h2>{address.country}</h2>
-          {/* <FontAwesomeIcon
-            icon={faCircleXmark}
-            className={`favorite-icon ${
-              isVisitedCountry ? 'favorite-icon--active' : ''
-            } `}
-            onClick={() => {
-              isVisitedCountry
-                ? handleRemoveFromVisitedCountry(address.country)
-                : handleAddToVisitedCountry(address.country);
-            }}
-          /> */}
+          <button onClick={handleAddCountry}>add Country</button>
         </div>
       </div>
       <div className="buttons">
-        <button
-          onClick={handleAddCountry}
-          type="submit"
-          className="confirm-button"
-        >
+        <button type="submit" className="confirm-button">
           Confirm
         </button>
         <button
