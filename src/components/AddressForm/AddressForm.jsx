@@ -1,7 +1,7 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
@@ -11,11 +11,17 @@ AddressForm.propTypes = {
 
 export default function AddressForm({ address, onSubmit, setAddress }) {
   const [items, setItems] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    const uniqueCountries = [...new Set(items)];
+    setShowMessage(uniqueCountries.length !== items.length);
+  }, [items]);
 
   const handleAddCountry = (newItem) => {
     setItems([...items, newItem]);
   };
-  const uniqueCountries = [...new Set(items)];
+  // const uniqueCountries = [...new Set(items)];
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
@@ -40,12 +46,12 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           </button>
         </div>
         <div>
-          {uniqueCountries.map((item, index) => (
+          {items.map((item, index) => (
             <h2 key={index}>{item}</h2>
           ))}
-          {uniqueCountries.length !== items.length && (
-            <p color="red">
-              Selected Country is already in visited country's list
+          {showMessage && (
+            <p style={{ color: 'red' }}>
+              Selected Country is already in the list
             </p>
           )}
         </div>
