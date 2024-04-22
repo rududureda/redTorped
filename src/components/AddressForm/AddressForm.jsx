@@ -30,11 +30,11 @@ export default function AddressForm({
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
-      <AutoCompleteInput setAddress={setAddress} />
+      <AutoCompleteInput handleAddCountry={handleAddCountry} />
       <div className="visitedCountry">
         <div>
           {/* <visitedCountryData value={address.country} /> */}
-          <h2>handleAddCountry={handleAddCountry}</h2>
+          <h2>{address.country}</h2>
           {/* <FontAwesomeIcon
             icon={faCircleXmark}
             className={`favorite-icon ${
