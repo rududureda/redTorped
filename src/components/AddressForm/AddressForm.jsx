@@ -1,6 +1,7 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
@@ -9,8 +10,11 @@ AddressForm.propTypes = {
 };
 
 export default function AddressForm({ address, onSubmit, setAddress }) {
-  const handleAddCountry = (country) => {
-    setAddress([...address.countries, country]);
+  const [item, setItem] = useState([]);
+  const name = address.country;
+
+  const handleAddCountry = (item) => {
+    setItem([...name, item]);
   };
 
   return (
@@ -19,12 +23,19 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       <AutoCompleteInput setAddress={setAddress} />
       <div className="visitedCountry">
         <div>
-          <h2>{address.country}</h2>
-          <button onClick={handleAddCountry}>add Country</button>
+          <button onClick={handleAddCountry}>AddCountry </button>
+          {item.map((item) => (
+            <h2 key={item.country}></h2>
+          ))}
         </div>
       </div>
       <div className="buttons">
-        <button type="submit" className="confirm-button">
+        <button></button>
+        <button
+          onClick={handleAddCountry}
+          type="submit"
+          className="confirm-button"
+        >
           Confirm
         </button>
         <button
