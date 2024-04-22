@@ -15,7 +15,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   const handleAddCountry = (newItem) => {
     setItems([...items, newItem]);
   };
-
+  const uniqueCountries = [...new Set(items)];
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
@@ -40,7 +40,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           </button>
         </div>
         <div>
-          {items.map((item, index) => (
+          {uniqueCountries.map((item, index) => (
             <h2 key={index}>{item}</h2>
           ))}
         </div>
