@@ -5,20 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 1rem 2rem;
-  // margin-bottom: 2rem;
-  color: red;
-  background-color: aqua;
+  color: white;
+  background-color: rgb(90, 21, 71);
+  box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.5);
   h1 {
     padding: 2rem;
-  }
-  ul {
-    display: flex;
-    list-style: none;
-    column-gap: 2rem;
-    padding: 2rem;
-    li {
-      padding-right: 8rem;
-    }
   }
 }
