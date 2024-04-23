@@ -4,14 +4,12 @@ import { useState } from 'react';
 import getPlaces from '../../API/getPlaces';
 
 AutoCompleteInput.propTypes = {
-  // handleManualInputChange: PropTypes.func.isRequired,
   setAddress: PropTypes.func, //deleted .isRequired
 };
 
 export default function AutoCompleteInput({ setAddress }) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
-  const [visitedCountry, setVisitedCountries]=useState([])
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
