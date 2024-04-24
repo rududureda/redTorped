@@ -29,9 +29,9 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
   return (
-    <form className="form" onSubmit={onSubmit}>
-      <label htmlFor="address">Address</label>
-      <AutoCompleteInput className="form" setAddress={setAddress} />
+    <form  onSubmit={onSubmit}>
+      <label className="form" htmlFor="address">Address</label>
+      <AutoCompleteInput className="autoCompleteInput" setAddress={setAddress} />
       {/* <div className="visitedCountry"> */}
       <div className="buttons">
         <button
