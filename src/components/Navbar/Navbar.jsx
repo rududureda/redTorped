@@ -48,15 +48,17 @@ function Navbar() {
     <nav className="nav-container">
       <h1>Red Tordeda</h1>
       {isLoggedIn ? (
-        <button className="button" onClick={handleLogout}>
+        <button className="buttonSignOut" onClick={handleLogout}>
           Sign out
         </button>
       ) : (
-        <GoogleLogin
-          onSuccess={handleLoginSuccess}
-          onError={handleLoginError}
-          buttonText="Sign in with Google"
-        />
+        <div className="googleLogin">
+          <GoogleLogin
+            onSuccess={handleLoginSuccess}
+            onError={handleLoginError}
+            buttonText="Sign in with Google"
+          />
+        </div>
       )}
     </nav>
   );
