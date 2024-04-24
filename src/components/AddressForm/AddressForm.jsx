@@ -31,39 +31,48 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="address">Address</label>
-      <AutoCompleteInput setAddress={setAddress} />
+      <AutoCompleteInput className="form" setAddress={setAddress} />
       {/* <div className="visitedCountry"> */}
-        <div className="buttons">
-          <button onClick={() => handleAddCountry(address.country)}>
-            Add Country
-          </button>
-          <button
-            type="reset"
-            className="reset-button"
-            onClick={() =>
-              setAddress({
-                country: '',
-                latitude: '',
-                longitude: '',
-              })
-            }
-          >
-            Reset
-          </button>
-        </div>
-        <div className='wrapper-countrys'>
-          {items.map((item, index) => (
-            <div key={index} className="country-item">
-              <h2>{item}</h2>
-              <button onClick={() => handleRemoveCountry(index)}>x</button>
-            </div>
-          ))}
-          {showMessage && (
-            <p style={{ color: 'red' }}>
-              Selected Country is already in the list
-            </p>
-          )}
-        </div>
+      <div className="buttons">
+        <button
+          className="button"
+          onClick={() => handleAddCountry(address.country)}
+        >
+          Add Country
+        </button>
+        <button
+          type="reset"
+          className="button"
+          onClick={() =>
+            setAddress({
+              country: '',
+              latitude: '',
+              longitude: '',
+            })
+          }
+        >
+          Reset
+        </button>
+      </div>
+      <div className="wrapper-countries">
+        {items.map((item, index) => (
+          <div key={index} className="country-item">
+            <h2>{item}</h2>
+            <button
+              className="country-item .delete-button"
+              onClick={() => handleRemoveCountry(index)}
+            >
+              x
+            </button>
+          </div>
+        ))}
+        {showMessage && (
+          <p className="error-message">
+            Selected Country is already in the list
+          </p>
+          /// style={{ color: 'red' }}
+        )}
+      </div>
       {/* </div> */}
     </form>
   );
