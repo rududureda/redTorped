@@ -4,12 +4,12 @@
   align-items: flex-start;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  // margin-bottom: 20px;
+  max-width: 400px; //add
+  max-height: 400px; //add
 }
 
 .buttons {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   gap: 10px;
@@ -44,7 +44,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
   max-height: calc(100vh - 200px);
-  width: 50%;
+  max-width: 400px; //add
+  max-height: 250px; //add
+  background-color: #cb2b39;
 }
 
 .country-item {

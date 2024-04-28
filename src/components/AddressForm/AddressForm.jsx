@@ -58,19 +58,21 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           Reset
         </button>
       </div>
-      <div className="wrapper-countries">
-        {items.map((item, index) => (
-          <div key={index} className="country-item">
-            <h2>{item}</h2>
-            <button
-              className="country-item .delete-button"
-              onClick={() => handleRemoveCountry(index)}
-            >
-              x
-            </button>
-          </div>
-        ))}
-      </div>
+      {address.longitude && address.latitude && (
+        <div className="wrapper-countries">
+          {items.map((item, index) => (
+            <div key={index} className="country-item">
+              <h2>{item}</h2>
+              <button
+                className="country-item .delete-button"
+                onClick={() => handleRemoveCountry(index)}
+              >
+                x
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </form>
   );
 }
