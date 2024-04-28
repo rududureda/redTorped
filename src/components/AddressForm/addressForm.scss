@@ -103,9 +103,6 @@
   align-items: center;
   margin-bottom: 10px;
   gap: 10px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
 }
 
 .button {
@@ -118,6 +115,9 @@
   font-family: Arial, sans-serif;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
 }
 
 .button:hover {
@@ -149,6 +149,7 @@
   margin: 0;
   font-size: 16px;
   color: #333;
+  margin-right: 5px;
 }
 
 .country-item .delete-button {
@@ -159,7 +160,6 @@
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-left: 5px;
 }
 
 .country-item .delete-button:hover {
