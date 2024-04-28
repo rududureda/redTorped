@@ -58,7 +58,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           Reset
         </button>
       </div>
-      {address.longitude && address.latitude && (
+      {handleAddCountry(
         <div className="wrapper-countries">
           {items.map((item, index) => (
             <div key={index} className="country-item">
