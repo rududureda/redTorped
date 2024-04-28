@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <AddressForm
+      <AddressForm 
         onSubmit={handleFormSubmit}
         address={address}
         setAddress={setAddress}

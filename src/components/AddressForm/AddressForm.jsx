@@ -29,7 +29,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} >
       {showMessage && (
         <p className="error-message">Selected Country is already in the list</p>
       )}
@@ -64,7 +64,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             <div key={index} className="country-item">
               <h2>{item}</h2>
               <button
-                className="country-item .delete-button"
+                className="country-item .delete-button "
                 onClick={() => handleRemoveCountry(index)}
               >
                 x
