@@ -29,10 +29,14 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
   return (
-    <form  onSubmit={onSubmit}>
-      <label className="form" htmlFor="address">Address</label>
-      <AutoCompleteInput className="autoCompleteInput" setAddress={setAddress} />
-      {/* <div className="visitedCountry"> */}
+    <form onSubmit={onSubmit}>
+      {showMessage && (
+        <p className="error-message">Selected Country is already in the list</p>
+      )}
+      <label className="form" htmlFor="map-country">
+        Map Country
+      </label>
+      <AutoCompleteInput setAddress={setAddress} />
       <div className="buttons">
         <button
           className="button"
@@ -66,14 +70,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             </button>
           </div>
         ))}
-        {showMessage && (
-          <p className="error-message">
-            Selected Country is already in the list
-          </p>
-          /// style={{ color: 'red' }}
-        )}
       </div>
-      {/* </div> */}
     </form>
   );
 }

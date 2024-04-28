@@ -42,7 +42,7 @@ export default function AutoCompleteInput({ setAddress }) {
         <input
           id="address"
           type="text"
-          placeholder="Address"
+          placeholder="Country"
           value={inputValue}
           onChange={handleChange}
         />
