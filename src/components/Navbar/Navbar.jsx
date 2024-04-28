@@ -46,7 +46,7 @@ function Navbar() {
 
   return (
     <nav className="nav-container">
-      <h1>Red Tordeda</h1>
+      <h1>Red Torded</h1>
       {isLoggedIn ? (
         <button className="buttonSignOut" onClick={handleLogout}>
           Sign out
