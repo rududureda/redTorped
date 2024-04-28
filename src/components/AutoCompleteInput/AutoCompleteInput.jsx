@@ -49,7 +49,7 @@ export default function AutoCompleteInput({ setAddress }) {
         <ul className="addressSuggestions">
           {suggestions?.map((suggestion, index) => (
             <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
-              {suggestion.place_name}
+            {suggestion.place_name}
             </li>
           ))}
         </ul>
