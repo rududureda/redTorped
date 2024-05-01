@@ -3,7 +3,7 @@ import AddressForm from './components/AddressForm/AddressForm';
 import Map from './components/Map/Map';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
         const data = await response.jason();
         console.log('data', data);
       } catch (error) {
-        `Error:${error.message}`;
+        ('');
       }
     };
     fetchData();
