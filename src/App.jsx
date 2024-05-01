@@ -7,9 +7,7 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  // const [loading, setLoading] = useState(false);
-  // const [countries, setCountries] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); //add
   const [address, setAddress] = useState({
     country: '',
     latitude: '',
@@ -27,21 +25,6 @@ function App() {
   const updateCoordinates = (latitude, longitude) => {
     setAddress({ ...address, latitude, longitude });
   };
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const response = await axios.get('http://localhost:3000/country'); // Adjust the URL as per your backend endpoint
-  //       setCountries(response.data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -58,7 +41,7 @@ function App() {
     };
     fetchData();
   }, []);
-
+  console.log(' setData', setData);
   // useEffect(() => {
   //   localStorage.setItem('data', JSON.stringify(data));
   //   console.log('data', data);
@@ -71,6 +54,7 @@ function App() {
         onSubmit={handleFormSubmit}
         address={address}
         setAddress={setAddress}
+        data={data}
         // countries={countries}
         // loading={loading}
       />

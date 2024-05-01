@@ -7,9 +7,10 @@ AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
+  data: PropTypes.func.isRequired,
 };
 
-export default function AddressForm({ address, onSubmit, setAddress }) {
+export default function AddressForm({ address, onSubmit, setAddress, data }) {
   const [items, setItems] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
 
@@ -33,6 +34,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   const handleRemoveCountry = (indexToRemove) => {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
+
   return (
     <form onSubmit={onSubmit}>
       {showMessage && (
@@ -63,11 +65,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           Reset
         </button>
       </div>
-      {items.length > 0 && (
+      {data.length > 0 && (
         <div className="wrapper-countries">
-          {items.map((item, index) => (
+          {data.map((country, index) => (
             <div key={index} className="country-item">
-              <h2>{item}</h2>
+              <h2>{country.country}</h2>
               <button
                 className="country-item .delete-button "
                 onClick={() => handleRemoveCountry(index)}
@@ -81,49 +83,3 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     </form>
   );
 }
-////////original before 04-22
-
-// import './addressForm.scss';
-// import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
-// import PropTypes from 'prop-types';
-// import { useState } from 'react';
-
-// AddressForm.propTypes = {
-//   address: PropTypes.object.isRequired,
-//   onSubmit: PropTypes.func.isRequired,
-//   setAddress: PropTypes.func.isRequired,
-// };
-
-// export default function AddressForm({ address, onSubmit, setAddress }) {
-
-//   return (
-//     <form className="form" onSubmit={onSubmit}>
-//       <label htmlFor="address">Address</label>
-//       <AutoCompleteInput setAddress={setAddress} />
-//       <div className="visitedCountry">
-//         <div>
-//             <h2>{address.country}</h2>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="buttons">
-//         <button type="submit" className="confirm-button">
-//           Confirm
-//         </button>
-//         <button
-//           type="reset"
-//           className="reset-button"
-//           onClick={() =>
-//             setAddress({
-//               country: '',
-//               latitude: '',
-//               longitude: '',
-//             })
-//           }
-//         >
-//           Reset
-//         </button>
-//       </div>
-//     </form>
-//   );
-// }
