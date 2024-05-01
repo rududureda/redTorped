@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   // const [loading, setLoading] = useState(false);
   // const [countries, setCountries] = useState([]);
+  const [data, setData] = useState([]);
   const [address, setAddress] = useState({
     country: '',
     latitude: '',
@@ -47,14 +48,21 @@ function App() {
         const response = await fetch('http://localhost:3000/country');
         console.log('response', response);
 
-        const data = await response.jason();
-        console.log('data', data);
+        const countries = await response.json();
+        console.log('countries', countries);
+
+        setData(countries);
       } catch (error) {
-        ('');
+        console.log(error.message);
       }
     };
     fetchData();
   }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem('data', JSON.stringify(data));
+  //   console.log('data', data);
+  // }, [data]);
 
   return (
     <div className="App">

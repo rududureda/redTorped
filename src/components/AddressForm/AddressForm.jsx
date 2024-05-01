@@ -14,6 +14,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+    console.log('items', items);
+  }, [items]);
+
+  useEffect(() => {
     const uniqueCountries = [...new Set(items)];
     setShowMessage(uniqueCountries.length !== items.length);
   }, [items]);
@@ -29,7 +34,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
   return (
-    <form onSubmit={onSubmit} >
+    <form onSubmit={onSubmit}>
       {showMessage && (
         <p className="error-message">Selected Country is already in the list</p>
       )}
