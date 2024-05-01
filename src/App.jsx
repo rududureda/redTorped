@@ -41,7 +41,6 @@ function App() {
     };
     fetchData();
   }, []);
-  console.log(' setData', setData);
   // useEffect(() => {
   //   localStorage.setItem('data', JSON.stringify(data));
   //   console.log('data', data);
@@ -54,7 +53,6 @@ function App() {
         onSubmit={handleFormSubmit}
         address={address}
         setAddress={setAddress}
-        data={data}
         // countries={countries}
         // loading={loading}
       />
