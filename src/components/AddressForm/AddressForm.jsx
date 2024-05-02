@@ -61,9 +61,9 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   //     setShowMessage(true);
   //   }
   // };
-
-  const handleRemoveCountry = (countryToRemove) => {
-    setItems(items.filter((item) => item.country !== countryToRemove.country));
+  //TODO
+  const handleRemoveCountry = (indexToRemove) => {
+    setItems(items.filter((_, index) => index !== indexToRemove));
   };
   return (
     <form onSubmit={onSubmit}>
@@ -96,16 +96,19 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       </div>
       {items.length > 0 && (
         <div className="wrapper-countries">
-          {items.map((item) => {
-            <div key={item.country} className="country-item">
-              <h2>{item.country}</h2>
-              <button
-                className="delete-button "
-                onClick={() => handleRemoveCountry(item)}
-              >
-                x
-              </button>
-            </div>;
+          {items.map((item, index) => {
+            console.log('map', item);
+            return (
+              <div key={item._id} className="country-item">
+                <h2>{item.country}</h2>
+                <button
+                  className="delete-button "
+                  onClick={() => handleRemoveCountry(index)}
+                >
+                  x
+                </button>
+              </div>
+            );
           })}
         </div>
       )}
