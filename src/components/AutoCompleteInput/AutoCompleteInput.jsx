@@ -44,7 +44,7 @@ export default function AutoCompleteInput({ setAddress }) {
           id="address"
           type="text"
           placeholder="Country"
-          value={setInputValue}
+          value={inputValue}
           onChange={handleChange}
         />
         <ul className="addressSuggestions">
