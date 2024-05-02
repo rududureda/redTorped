@@ -67,7 +67,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   // };
   const handleRemoveCountry = async (itemId) => {
     try {
-      const response = await fetch(`http://localhost:3000/country/${itemId}`, {
+      const response = await fetch(`http://localhost:3000/country/id`, {
         method: 'DELETE',
       });
       if (response.ok) {
