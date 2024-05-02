@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-  font-family: var(----font-family);
-}
 body {
   margin: 0;
   background-size: cover;
@@ -26,6 +23,7 @@ body {
   justify-content: space-around;
   align-items: center;
   gap: 5rem;
+  flex-wrap: wrap;
 
   @media only screen and (max-width: 700px) {
     .App {

@@ -3,7 +3,6 @@ import AddressForm from './components/AddressForm/AddressForm';
 import Map from './components/Map/Map';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useState, useEffect } from 'react';
-// import axios from 'axios';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
@@ -25,22 +24,7 @@ function App() {
   const updateCoordinates = (latitude, longitude) => {
     setAddress({ ...address, latitude, longitude });
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/country');
-        console.log('response', response);
 
-        const countries = await response.json();
-        console.log('countries', countries);
-
-        setData(countries);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
-  }, []);
   // useEffect(() => {
   //   localStorage.setItem('data', JSON.stringify(data));
   //   console.log('data', data);
@@ -54,7 +38,6 @@ function App() {
         address={address}
         setAddress={setAddress}
         // countries={countries}
-        // loading={loading}
       />
       {address.longitude && address.latitude && (
         <Map

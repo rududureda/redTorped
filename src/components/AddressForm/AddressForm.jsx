@@ -1,7 +1,7 @@
 import './addressForm.scss';
 import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 
 AddressForm.propTypes = {
   address: PropTypes.object.isRequired,
@@ -10,21 +10,39 @@ AddressForm.propTypes = {
 };
 
 export default function AddressForm({ address, onSubmit, setAddress }) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]); //[{country:string,longitude:number,latitude:number,_id:string}]
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    const uniqueCountries = [...new Set(items)];
-    setShowMessage(uniqueCountries.length !== items.length);
-  }, [items]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/country');
+        console.log('response', response);
 
-  const handleAddCountry = (newItem) => {
-    if (!items.includes(newItem)) {
-      setItems([...items, newItem]);
+        const countries = await response.json();
+        console.log('countries', countries);
+
+        setItems(countries);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+  //ToDO
+  // useEffect(() => {
+  //   const uniqueCountries = [...new Set(items)];
+  //   setShowMessage(uniqueCountries.length !== items.length);
+  // }, [items]);
+  console.log('Item', items);
+  const handleAddCountry = (newCountry) => {
+    if (!items.some((item) => item.country === newCountry.country)) {
+      setItems([...items, newCountry]);
     } else {
       setShowMessage(true);
     }
   };
+  //TODO
   const handleRemoveCountry = (indexToRemove) => {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
@@ -40,10 +58,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       </label>
       <AutoCompleteInput setAddress={setAddress} />
       <div className="buttons">
-        <button
-          className="button"
-          onClick={() => handleAddCountry(address.country)}
-        >
+        <button className="button" onClick={() => handleAddCountry(address)}>
           Add Country
         </button>
         <button
@@ -62,17 +77,20 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       </div>
       {items.length > 0 && (
         <div className="wrapper-countries">
-          {items.map((item, index) => (
-            <div key={index} className="country-item">
-              <h2>{item}</h2>
-              <button
-                className="delete-button "
-                onClick={() => handleRemoveCountry(index)}
-              >
-                x
-              </button>
-            </div>
-          ))}
+          {items.map((item, index) => {
+            console.log('map', item);
+            return (
+              <div key={item._id} className="country-item">
+                <h2>{item.country}</h2>
+                <button
+                  className="delete-button "
+                  onClick={() => handleRemoveCountry(index)}
+                >
+                  x
+                </button>
+              </div>
+            );
+          })}
         </div>
       )}
     </form>
