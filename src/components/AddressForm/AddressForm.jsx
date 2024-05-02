@@ -32,9 +32,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
 
   const handleAddCountry = async (newCountry) => {
     try {
-      // Check if the country already exists in the list
       if (!items.some((item) => item.country === newCountry.country)) {
-        // Make a POST request to your backend to add the new country
         const response = await fetch('http://localhost:3000/country', {
           method: 'POST',
           headers: {
@@ -42,24 +40,16 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           },
           body: JSON.stringify(newCountry),
         });
-
-        // Parse the JSON response
         const data = await response.json();
-
-        // Check if the request was successful (status code 2xx)
         if (response.ok) {
-          // If successful, add the new country to the items list
           setItems([...items, data]);
         } else {
-          // If the request failed, throw an error with the error message from the server
           throw new Error(data.error);
         }
       } else {
-        // If the country already exists in the list, show an error message
         setShowMessage(true);
       }
     } catch (error) {
-      // Handle any errors that occur during the fetch operation
       console.error('Error adding country:', error.message);
     }
   };
@@ -109,7 +99,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
           {items.map((item, index) => {
             console.log('map', item);
             return (
-              <div key={item._id} className="country-item">
+              <div key={item.country} className="country-item">
                 <h2>{item.country}</h2>
                 <button
                   className="delete-button "
