@@ -33,7 +33,7 @@ export default function AutoCompleteInput({ setAddress }) {
     };
 
     setAddress(address);
-    setInputValue(suggestion.place_name); //add
+    setInputValue(''); //add
     setSuggestions([]);
   };
 

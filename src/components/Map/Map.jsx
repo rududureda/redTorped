@@ -5,7 +5,6 @@ import ReactMapGl, { Marker } from 'react-map-gl';
 import { useState, useEffect } from 'react';
 
 const TOKEN = import.meta.env.VITE_TOKEN;
-console.log(`Token`, TOKEN);
 Map.propTypes = {
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,
