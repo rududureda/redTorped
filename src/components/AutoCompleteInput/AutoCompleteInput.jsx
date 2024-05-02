@@ -30,7 +30,7 @@ export default function AutoCompleteInput({ setAddress }) {
       country: suggestion.place_name,
       latitude,
       longitude,
-      _id: suggestion.id,
+      // _id: suggestion.id,
     };
 
     setAddress(address);
