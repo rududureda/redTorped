@@ -65,13 +65,13 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   // const handleRemoveCountry = (indexToRemove) => {
   //   setItems(items.filter((_, index) => index !== indexToRemove));
   // };
-  const handleRemoveCountry = async (itemId) => {
+  const handleRemoveCountry = async (countryId) => {
     try {
       const response = await fetch(`http://localhost:3000/country/id`, {
         method: 'DELETE',
       });
       if (response.ok) {
-        setItems(items.filter((item) => item._id !== itemId));
+        setItems(items.filter((item) => item._id !== countryId));
       } else {
         throw new Error('Failed to delete country');
       }
@@ -110,14 +110,14 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       </div>
       {items.length > 0 && (
         <div className="wrapper-countries">
-          {items.map((item, index) => {
+          {items.map((item) => {
             console.log('map', item);
             return (
               <div key={item._id} className="country-item">
                 <h2>{item.country}</h2>
                 <button
                   className="delete-button "
-                  onClick={() => handleRemoveCountry(index)}
+                  onClick={() => handleRemoveCountry(item._id)}
                 >
                   x
                 </button>
