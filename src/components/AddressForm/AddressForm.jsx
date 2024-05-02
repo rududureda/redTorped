@@ -62,8 +62,22 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   //   }
   // };
   //TODO
-  const handleRemoveCountry = (indexToRemove) => {
-    setItems(items.filter((_, index) => index !== indexToRemove));
+  // const handleRemoveCountry = (indexToRemove) => {
+  //   setItems(items.filter((_, index) => index !== indexToRemove));
+  // };
+  const handleRemoveCountry = async (itemId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/country/${itemId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setItems(items.filter((item) => item._id !== itemId));
+      } else {
+        throw new Error('Failed to delete country');
+      }
+    } catch (error) {
+      console.error('Error deleting country:', error.message);
+    }
   };
   return (
     <form onSubmit={onSubmit}>
