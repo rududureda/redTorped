@@ -35,25 +35,21 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     try {
       if (!items.some((item) => item.country === newCountry.country)) {
         // Make a POST request to your backend to add the new country
-        const response = await fetch('http://localhost:3000/country', {
+        const response = await fetch('http://localhost:3000/add-country', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(newCountry),
         });
-
+        const data = await response.json();
+        setItems([...items, data]);
         if (response.ok) {
-          // If the POST request is successful, add the new country to the items state
-          const data = await response.json();
-          setItems([...items, data]); // Assuming the backend returns the added country object
+          // Assuming the backend returns the added country object
         } else {
           // If the POST request fails, show an error message
-          setShowMessage(true);
-          console.error('Failed to add country:', response.statusText);
+          throw new Error(newCountry.error);
         }
-      } else {
-        setShowMessage(true);
       }
     } catch (error) {
       console.error('Error adding country:', error.message);
