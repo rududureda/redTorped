@@ -83,12 +83,12 @@
 .error-message {
   font-size: 16px;
   font-weight: bold;
-  color: red;
-  background-color: rgba(255, 0, 0, 0.1);
+  color: black;
+  background-color: var(--primary-color);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
-  animation: fadeIn 0.5s ease; // Add fadeIn animation
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
