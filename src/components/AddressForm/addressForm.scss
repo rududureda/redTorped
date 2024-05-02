@@ -4,8 +4,9 @@
   align-items: flex-start;
   font-family: var(--font-family);
   font-size: 16px;
-  max-width: 400px; //add
-  max-height: 400px; //add
+  font-weight: bolder;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .buttons {
@@ -43,8 +44,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
   max-height: calc(100vh - 200px);
-  max-width: 400px; //add
-  max-height: 250px; //add
+  max-width: 400px;
+  max-height: 250px;
   background-color: var(--primary-color);
 }
 
@@ -66,7 +67,6 @@
   .delete-button {
     background-color: var(--button-hover-color);
     color: var(--input-border-color);
-    // padding: 5px 10px;
     border-radius: 50%;
     font-size: 16px;
     cursor: pointer;
@@ -81,8 +81,21 @@
   }
 }
 .error-message {
-  // color: var(--error-color);
   font-size: 16px;
-  font-weight: bolder;
-  text-decoration: underline;
+  font-weight: bold;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s ease; // Add fadeIn animation
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

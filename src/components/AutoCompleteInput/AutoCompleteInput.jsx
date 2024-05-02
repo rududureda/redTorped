@@ -4,7 +4,7 @@ import { useState } from 'react';
 import getPlaces from '../../API/getPlaces';
 
 AutoCompleteInput.propTypes = {
-  setAddress: PropTypes.func, //deleted .isRequired
+  setAddress: PropTypes.func,
 };
 
 export default function AutoCompleteInput({ setAddress }) {
@@ -30,11 +30,10 @@ export default function AutoCompleteInput({ setAddress }) {
       country: suggestion.place_name,
       latitude,
       longitude,
-      // _id: suggestion.id,
     };
 
     setAddress(address);
-    setInputValue(''); //add
+    setInputValue(''); 
     setSuggestions([]);
   };
 

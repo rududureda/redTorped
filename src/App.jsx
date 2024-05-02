@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  const [data, setData] = useState([]); //add
   const [address, setAddress] = useState({
     country: '',
     latitude: '',
@@ -25,11 +24,6 @@ function App() {
     setAddress({ ...address, latitude, longitude });
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem('data', JSON.stringify(data));
-  //   console.log('data', data);
-  // }, [data]);
-
   return (
     <div className="App">
       <Navbar />
@@ -37,7 +31,6 @@ function App() {
         onSubmit={handleFormSubmit}
         address={address}
         setAddress={setAddress}
-        // countries={countries}
       />
       {address.longitude && address.latitude && (
         <Map

@@ -43,6 +43,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         const data = await response.json();
         if (response.ok) {
           setItems([...items, data]);
+          setShowMessage(false);
         } else {
           throw new Error(data.error);
         }
@@ -54,17 +55,6 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
     }
   };
 
-  // const handleAddCountry = (newCountry) => {
-  //   if (!items.some((item) => item.country === newCountry.country)) {
-  //     setItems([...items, newCountry]);
-  //   } else {
-  //     setShowMessage(true);
-  //   }
-  // };
-  //TODO
-  // const handleRemoveCountry = (indexToRemove) => {
-  //   setItems(items.filter((_, index) => index !== indexToRemove));
-  // };
   const handleRemoveCountry = async (countryId) => {
     try {
       const response = await fetch(
@@ -75,6 +65,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       );
       if (response.ok) {
         setItems(items.filter((item) => item._id !== countryId));
+        setShowMessage(false);
       } else {
         throw new Error('Failed to delete country');
       }
@@ -82,6 +73,11 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
       console.error('Error deleting country:', error.message);
     }
   };
+
+  useEffect(() => {
+    setShowMessage(false);
+  }, [items]);
+
   return (
     <form onSubmit={onSubmit}>
       {showMessage && (
