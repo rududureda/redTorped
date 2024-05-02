@@ -31,7 +31,9 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
   return (
     <form onSubmit={onSubmit}>
       {showMessage && (
-        <p className="error-message">Selected Country is already in the list</p>
+        <p className="error-message">
+          Selected Country is already in the list !
+        </p>
       )}
       <label className="form" htmlFor="map-country">
         Map visited country
