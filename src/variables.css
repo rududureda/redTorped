@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #cb2b39;
+  --secondary-color: #4285f4;
+  --button-hover-color: #3a77f7;
+  --error-color: #d32f2f;
+  --input-border-color: black;
+  --input-border-radius: 5px;
+  --input-padding: 0.5em 1em;
+  --font-family: 'Poppins', sans-serif;
+}

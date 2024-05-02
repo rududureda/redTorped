@@ -34,7 +34,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
         <p className="error-message">Selected Country is already in the list</p>
       )}
       <label className="form" htmlFor="map-country">
-        Map Country
+        Map visited country
       </label>
       <AutoCompleteInput setAddress={setAddress} />
       <div className="buttons">
@@ -64,7 +64,7 @@ export default function AddressForm({ address, onSubmit, setAddress }) {
             <div key={index} className="country-item">
               <h2>{item}</h2>
               <button
-                className="country-item .delete-button "
+                className="delete-button "
                 onClick={() => handleRemoveCountry(index)}
               >
                 x

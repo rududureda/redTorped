@@ -33,6 +33,7 @@ export default function AutoCompleteInput({ setAddress }) {
     };
 
     setAddress(address);
+    setInputValue(suggestion.place_name); //add
     setSuggestions([]);
   };
 
@@ -43,13 +44,13 @@ export default function AutoCompleteInput({ setAddress }) {
           id="address"
           type="text"
           placeholder="Country"
-          value={inputValue}
+          value={setInputValue}
           onChange={handleChange}
         />
         <ul className="addressSuggestions">
           {suggestions?.map((suggestion, index) => (
             <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
-            {suggestion.place_name}
+              {suggestion.place_name}
             </li>
           ))}
         </ul>

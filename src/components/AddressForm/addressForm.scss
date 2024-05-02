@@ -1,9 +1,8 @@
-
 .form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   font-size: 16px;
   max-width: 400px; //add
   max-height: 400px; //add
@@ -19,25 +18,24 @@
 .button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
-  background-color: #4285f4;
-  color: white;
-  font-family: Arial, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--input-border-color);
+  font-family: var(--font-family);
   font-size: 16px;
   transition: background-color 0.3s ease;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
-}
 
-.button:hover {
-  background-color: #3a77f7;
+  &:hover {
+    background-color: #3a77f7;
+  }
 }
-
 .wrapper-countries {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -47,48 +45,40 @@
   max-height: calc(100vh - 200px);
   max-width: 400px; //add
   max-height: 250px; //add
-  background-color: #cb2b39;
+  background-color: var(--primary-color);
 }
 
 .country-item {
   display: flex;
   align-items: center;
-  padding: 5px 10px; /* Adjust padding as needed */
+  padding: 5px 10px;
   background-color: #f5f5f5;
-  border-radius: 5px;
-}
+  border-radius: 50px;
 
-.country-item h2 {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-  margin-right: 5px;
-}
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    margin-right: 5px;
+  }
 
-.country-item .delete-button {
-  background-color: #e0e0e0;
-  color: #666;
-  padding: 5px;
-  border-radius: 50%;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  .delete-button {
+    background-color: var(--button-hover-color);
+    color: var(--input-border-color);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
-.country-item .delete-button:hover {
-  background-color: #bdbdbd;
-  color: #333;
+    &:hover {
+      background-color: #bdbdbd;
+      color: #333;
+      cursor: pointer;
+    }
+  }
 }
-
 .error-message {
-  color: #d32f2f;
+  color: var(--error-color);
   font-size: 14px;
 }
-// .overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5) for the desired transparency */
-// }

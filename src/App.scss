@@ -5,8 +5,8 @@ body {
   background-size: cover;
   background-image: url('../src/assets/fAV7gHDvYoCOk6cmIS0CoGs.jpg');
   box-shadow: inset 0 0 0 2000px rgba(234, 225, 223, 0.4);
-  color: white;
-  font-family: 'Poppins', sans-serif;
+  color: var(----input-border-color);
+  font-family: var(----font-family);
 }
 
 #root {
@@ -23,16 +23,15 @@ body {
   justify-content: space-around;
   align-items: center;
   gap: 5rem;
-}
 
-@media only screen and (max-width: 700px) {
-  .App {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #root {
-    justify-content: start;
+  @media only screen and (max-width: 700px) {
+    .App {
+      flex-direction: column;
+      align-items: center;
+    }
+    #root {
+      justify-content: start;
+    }
   }
 }
 // .form-container {
